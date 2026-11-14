@@ -1,9 +1,11 @@
-# Jack&#39;s Strange Expansion
+# Jack's Strange Expansion
 
-## Setup
-
-For setup instructions, please see the [Fabric Documentation page](https://docs.fabricmc.net/develop/getting-started/creating-a-project#setting-up) related to the IDE that you are using.
+Can I really call this a mod?
 
 ## License
 
-This template is available under the CC0 license. Feel free to learn from it and incorporate it in your own projects.
+Unless stated otherwise, all project files in this repository are licensed under [Mozilla Public License 2.0](LICENSE-MPL).\
+Assets in `src/main/resources/assets` created by me (thecasualdev) or contributors are licensed under [CC BY-NC-SA 4.0](LICENSE-CC-BY-NC-SA).
+
+By contributing, you understand and agree your contributions are licensed under the same terms.\
+Code and original assets © 2026 thecasualdev and contributors.
