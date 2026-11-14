@@ -20,7 +20,7 @@ import java.util.function.Function;
 public class ModItems {
 
     public static final Item COOLITEM = registerItem("cool", Item::new);
-
+    public static final Item NOTCOOLITEM = registerItem("uncool", Item::new);
 
     private static Item registerItem(String name, Function<Item.Properties, Item> function) {
         return Registry.register(BuiltInRegistries.ITEM, StrangeExpansion.id(name),
@@ -34,6 +34,7 @@ public class ModItems {
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output -> {
             output.accept(COOLITEM);
+            output.accept(NOTCOOLITEM);
         });
     }
 }
