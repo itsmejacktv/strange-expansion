@@ -17,7 +17,7 @@ import net.minecraft.world.item.Item;
 
 import java.util.function.Function;
 
-public class Items {
+public class ModItems {
 
     public static final Item COOLITEM = registerItem("cool", Item::new);
 
@@ -30,7 +30,7 @@ public class Items {
     }
 
     public static void registerModItems() {
-        StrangeExpansion.LOGGER.info("Registering Mod Items for " + StrangeExpansion.MOD_ID);
+        StrangeExpansion.LOGGER.info("Registering Mod ModItems for " + StrangeExpansion.MOD_ID);
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output -> {
             output.accept(COOLITEM);
