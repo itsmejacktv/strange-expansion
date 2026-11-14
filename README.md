@@ -2,6 +2,15 @@
 
 Can I really call this a mod?
 
+> ### anthology
+> */ænˈθɑlədʒi/* · **noun**
+>
+> 1. A collection of literary works, such as poems or short stories.
+> 2. *(by extension)* An assortment of things.
+
+This mod is an **anthology**, primarily designed for an SMP my friends and I are playing on.\
+It provides no one purpose, nor does it tackle any particular problem. It simply exists.
+
 ## License
 
 Unless stated otherwise, all project files in this repository are licensed under [Mozilla Public License 2.0](LICENSE-MPL).\

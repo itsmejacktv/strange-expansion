@@ -6,6 +6,7 @@
 
 package com.thecasualdev.jack;
 
+import com.thecasualdev.jack.item.Items;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.Identifier;
@@ -19,10 +20,8 @@ public class StrangeExpansion implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		LOGGER.info("Hello Fabric world!");
+		Items.registerModItems();
 	}
 
-	public static Identifier id(String path) {
-		return Identifier.fromNamespaceAndPath(MOD_ID, path);
-	}
+	public static Identifier id(String path) {return Identifier.fromNamespaceAndPath(MOD_ID, path);}
 }
