@@ -6,6 +6,8 @@
 
 package com.thecasualdev.jack;
 
+import com.thecasualdev.jack.datagen.ModBlockLootTableProvider;
+import com.thecasualdev.jack.datagen.ModBlockTagsProvider;
 import com.thecasualdev.jack.datagen.ModLanguageProvider;
 import com.thecasualdev.jack.datagen.ModModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -16,6 +18,8 @@ public class StrangeExpansionDataGenerator implements DataGeneratorEntrypoint {
 	public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
 		var pack = fabricDataGenerator.createPack();
 
+		pack.addProvider(ModBlockLootTableProvider::new);
+		pack.addProvider(ModBlockTagsProvider::new);
 		pack.addProvider(ModLanguageProvider::new);
 		pack.addProvider(ModModelProvider::new);
 	}

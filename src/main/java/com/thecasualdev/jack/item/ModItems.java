@@ -14,10 +14,15 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Function;
 
 public class ModItems {
+
+    public static ResourceKey<Item> getRk(Item item) {
+        return BuiltInRegistries.ITEM.getResourceKey(item).get();
+    }
 
     public static final Item COOLITEM = registerItem("cool", Item::new);
     public static final Item NOTCOOLITEM = registerItem("uncool", Item::new);

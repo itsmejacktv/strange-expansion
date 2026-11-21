@@ -23,6 +23,10 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
+    public static ResourceKey<Block> getRk(Block block) {
+        return BuiltInRegistries.BLOCK.getResourceKey(block).get();
+    }
+
     public static final Block TEST_BLOCK = registerBlock("test_block",
             properties -> new Block(properties.strength(4f)
                     .requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS)));

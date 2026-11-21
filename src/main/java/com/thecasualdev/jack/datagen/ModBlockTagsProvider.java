@@ -1,0 +1,34 @@
+//  This Source Code Form is subject to the terms of the Mozilla Public
+//  License, v. 2.0. If a copy of the MPL was not distributed with this
+//  file, You can obtain one at https://mozilla.org/MPL/2.0/.
+//
+//  © 2026 thecasualdev
+
+package com.thecasualdev.jack.datagen;
+
+import com.thecasualdev.jack.block.ModBlocks;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.BlockTags;
+
+import java.util.concurrent.CompletableFuture;
+
+public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
+
+    public ModBlockTagsProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registryLookupFuture) {
+        super(output, registryLookupFuture);
+    }
+
+    @Override
+    protected void addTags(HolderLookup.Provider registries) {
+        tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ModBlocks.getRk(ModBlocks.TEST_BLOCK));
+
+        tag(BlockTags.NEEDS_IRON_TOOL)
+                .add(ModBlocks.getRk(ModBlocks.TEST_BLOCK));
+
+        tag(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)
+                .add(ModBlocks.getRk(ModBlocks.TEST_BLOCK));
+    }
+}
