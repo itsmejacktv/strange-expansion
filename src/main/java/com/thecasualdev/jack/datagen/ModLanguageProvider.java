@@ -54,6 +54,18 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 
         }
 
+        for (Map.Entry<DyeColor, VanillaBlocks.family> glazed_terracotta : VanillaBlocks.GLAZED_TERRACOTTA_FAMILY.entrySet()) {
+
+            String name = formatNameFromColor(glazed_terracotta.getKey()) + " Glazed Terracotta";
+
+            VanillaBlocks.family terracotta = glazed_terracotta.getValue();
+
+            translationBuilder.add(terracotta.stairs(), name + " Stairs");
+            translationBuilder.add(terracotta.slab(), name + " Slab");
+            translationBuilder.add(terracotta.wall(), name + " Wall");
+
+        }
+
     }
 
     private static String formatNameFromColor(DyeColor color) {

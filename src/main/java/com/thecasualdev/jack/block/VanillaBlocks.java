@@ -16,6 +16,7 @@ package com.thecasualdev.jack.block;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.PushReaction;
 
 import java.util.EnumMap;
 import java.util.Map;
@@ -27,6 +28,7 @@ public class VanillaBlocks {
 
     public static final Map<DyeColor, family> CONCRETE_FAMILY = new EnumMap<>(DyeColor.class);
     public static final Map<DyeColor, family> TERRACOTTA_FAMILY = new EnumMap<>(DyeColor.class);
+    public static final Map<DyeColor, family> GLAZED_TERRACOTTA_FAMILY = new EnumMap<>(DyeColor.class);
 
     public static void registerConcrete() {
 
@@ -98,6 +100,46 @@ public class VanillaBlocks {
                     ));
 
             TERRACOTTA_FAMILY.put(color, new family(base, stairs, slab, wall));
+        }
+
+    }
+
+    public static void registerGlazedTerracotta() {
+
+        for (DyeColor color : DyeColor.values()) {
+
+            Block base = Blocks.GLAZED_TERRACOTTA.pick(color);
+            String name = color.getSerializedName() + "_glazed_terracotta";
+
+            Block stairs = ModBlocks.registerBlock(name + "_stairs",
+                    properties -> new StairBlock(base.defaultBlockState(),
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.BASEDRUM)
+                                    .requiresCorrectToolForDrops()
+                                    .pushReaction(PushReaction.PUSH_ONLY)
+                                    .strength(1.4F)));
+
+            Block slab = ModBlocks.registerBlock(name + "_slab",
+                    properties -> new SlabBlock(
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.BASEDRUM)
+                                    .requiresCorrectToolForDrops()
+                                    .pushReaction(PushReaction.PUSH_ONLY)
+                                    .strength(1.4F)));
+
+            Block wall = ModBlocks.registerBlock(name + "_wall",
+                    properties -> new WallBlock(
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.BASEDRUM)
+                                    .requiresCorrectToolForDrops()
+                                    .pushReaction(PushReaction.PUSH_ONLY)
+                                    .strength(1.4F)
+                    ));
+
+            GLAZED_TERRACOTTA_FAMILY.put(color, new family(base, stairs, slab, wall));
         }
 
     }

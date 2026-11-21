@@ -9,6 +9,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -81,6 +82,19 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, terracotta.slab(), terracotta.base(), 2);
                 }
 
+                for (VanillaBlocks.family glazed_terracotta : VanillaBlocks.GLAZED_TERRACOTTA_FAMILY.values()) {
+
+                    stairBuilder(glazed_terracotta.stairs(), Ingredient.of(glazed_terracotta.base()))
+                            .unlockedBy(getHasName(glazed_terracotta.base()), has(glazed_terracotta.base()))
+                            .save(output);
+
+                    slab(RecipeCategory.BUILDING_BLOCKS, glazed_terracotta.slab(), glazed_terracotta.base());
+                    wall(RecipeCategory.BUILDING_BLOCKS, glazed_terracotta.wall(), glazed_terracotta.base());
+
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, glazed_terracotta.stairs(), glazed_terracotta.base(), 1);
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, glazed_terracotta.wall(), glazed_terracotta.base(), 1);
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, glazed_terracotta.slab(), glazed_terracotta.base(), 2);
+                }
 
             }
         };

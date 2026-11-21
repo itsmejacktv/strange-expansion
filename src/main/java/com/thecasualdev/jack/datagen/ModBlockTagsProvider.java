@@ -55,5 +55,16 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
             tag(BlockTags.WALLS).add(ModBlocks.getRk(terracotta.wall()));
         }
 
+        for (VanillaBlocks.family glazed_terracotta : VanillaBlocks.GLAZED_TERRACOTTA_FAMILY.values()) {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                    .add(ModBlocks.getRk(glazed_terracotta.stairs()))
+                    .add(ModBlocks.getRk(glazed_terracotta.slab()))
+                    .add(ModBlocks.getRk(glazed_terracotta.wall()));
+
+            tag(BlockTags.STAIRS).add(ModBlocks.getRk(glazed_terracotta.stairs()));
+            tag(BlockTags.SLABS).add(ModBlocks.getRk(glazed_terracotta.slab()));
+            tag(BlockTags.WALLS).add(ModBlocks.getRk(glazed_terracotta.wall()));
+        }
+
     }
 }

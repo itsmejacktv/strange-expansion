@@ -36,5 +36,11 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
             add(terracotta.slab(), createSlabItemTable(terracotta.slab()));
         }
 
+        for (VanillaBlocks.family glazed_terracotta : VanillaBlocks.GLAZED_TERRACOTTA_FAMILY.values()) {
+            dropSelf(glazed_terracotta.stairs());
+            dropSelf(glazed_terracotta.wall());
+            add(glazed_terracotta.slab(), createSlabItemTable(glazed_terracotta.slab()));
+        }
+
     }
 }

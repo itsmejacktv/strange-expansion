@@ -1,7 +1,7 @@
 // 26.2	-999999999-01-01T00:00:00	Jack's Strange Expansion/Tags for minecraft:block
 34f7f1b006778882484be2f14bb29e8b333bc3b6 data/minecraft/tags/block/incorrect_for_netherite_tool.json
-140991658dbd5e6df490b87010d2240c2b8ffa8b data/minecraft/tags/block/mineable/pickaxe.json
+3e881d3af2a8ca3878bf40128cedf1bee00ec1fd data/minecraft/tags/block/mineable/pickaxe.json
 34f7f1b006778882484be2f14bb29e8b333bc3b6 data/minecraft/tags/block/needs_iron_tool.json
-d35890ee464038d79eec8d08df95c59ee6338193 data/minecraft/tags/block/slabs.json
-56ee2b52ba1bae612660995576edb850e8e28b97 data/minecraft/tags/block/stairs.json
-c3640a8c5aa7d60c24d588a0a093eba2e451526c data/minecraft/tags/block/walls.json
+d9ceced7a1863598776c9690d5bbf1295a3101f5 data/minecraft/tags/block/slabs.json
+330c6a79c81694c0b67388bc048c592b5c7cdc45 data/minecraft/tags/block/stairs.json
+0398225a3bb70bf8a9dd8c77fea256dccabd06f6 data/minecraft/tags/block/walls.json

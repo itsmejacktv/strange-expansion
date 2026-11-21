@@ -52,6 +52,7 @@ public class ModBlocks {
 
         VanillaBlocks.registerConcrete();
         VanillaBlocks.registerTerracotta();
+        VanillaBlocks.registerGlazedTerracotta();
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(output -> {
             output.accept(TEST_BLOCK);
@@ -63,6 +64,12 @@ public class ModBlocks {
             });
 
             VanillaBlocks.TERRACOTTA_FAMILY.values().forEach(family -> {
+                output.accept(family.stairs());
+                output.accept(family.slab());
+                output.accept(family.wall());
+            });
+
+            VanillaBlocks.GLAZED_TERRACOTTA_FAMILY.values().forEach(family -> {
                 output.accept(family.stairs());
                 output.accept(family.slab());
                 output.accept(family.wall());
