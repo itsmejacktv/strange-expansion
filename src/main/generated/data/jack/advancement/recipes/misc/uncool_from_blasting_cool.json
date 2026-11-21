@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_cool": {
+      "conditions": {
+        "items": [
+          {
+            "items": "jack:cool"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "jack:uncool_from_blasting_cool"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_cool"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "jack:uncool_from_blasting_cool"
+    ]
+  }
+}

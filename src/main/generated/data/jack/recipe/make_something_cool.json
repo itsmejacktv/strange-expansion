@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "gubby",
+  "key": {
+    "D": "minecraft:diamond_block",
+    "N": "minecraft:netherite_hoe"
+  },
+  "pattern": [
+    "DDD",
+    "DND",
+    "DDD"
+  ],
+  "result": {
+    "count": 4,
+    "id": "jack:cool"
+  }
+}

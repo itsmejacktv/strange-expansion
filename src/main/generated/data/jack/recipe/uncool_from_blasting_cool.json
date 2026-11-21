@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "blocks",
+  "cookingtime": 50,
+  "experience": 0.5,
+  "group": "gubby",
+  "ingredient": "jack:cool",
+  "result": {
+    "id": "jack:uncool"
+  }
+}

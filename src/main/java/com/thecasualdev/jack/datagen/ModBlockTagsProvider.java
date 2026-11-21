@@ -7,6 +7,7 @@
 package com.thecasualdev.jack.datagen;
 
 import com.thecasualdev.jack.block.ModBlocks;
+import com.thecasualdev.jack.block.VanillaBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
@@ -30,5 +31,17 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
 
         tag(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)
                 .add(ModBlocks.getRk(ModBlocks.TEST_BLOCK));
+
+        for (VanillaBlocks.family concrete : VanillaBlocks.CONCRETE_FAMILY.values()) {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                    .add(ModBlocks.getRk(concrete.stairs()))
+                    .add(ModBlocks.getRk(concrete.slab()))
+                    .add(ModBlocks.getRk(concrete.wall()));
+
+            tag(BlockTags.STAIRS).add(ModBlocks.getRk(concrete.stairs()));
+            tag(BlockTags.SLABS).add(ModBlocks.getRk(concrete.slab()));
+            tag(BlockTags.WALLS).add(ModBlocks.getRk(concrete.wall()));
+        }
+
     }
 }
