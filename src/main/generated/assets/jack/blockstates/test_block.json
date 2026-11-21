@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "jack:block/test_block"
+    }
+  }
+}

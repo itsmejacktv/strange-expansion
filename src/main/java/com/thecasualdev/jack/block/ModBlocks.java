@@ -1,18 +1,32 @@
+//  This Source Code Form is subject to the terms of the Mozilla Public
+//  License, v. 2.0. If a copy of the MPL was not distributed with this
+//  file, You can obtain one at https://mozilla.org/MPL/2.0/.
+//
+//  © 2026 thecasualdev
+
 package com.thecasualdev.jack.block;
 
 import com.thecasualdev.jack.StrangeExpansion;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Function;
 
 public class ModBlocks {
+
+    public static final Block TEST_BLOCK = registerBlock("test_block",
+            properties -> new Block(properties.strength(4f)
+                    .requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS)));
+
 
     private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function) {
         Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(
@@ -31,6 +45,10 @@ public class ModBlocks {
 
     public static void registerModBlocks() {
         StrangeExpansion.LOGGER.info("Registering Mod blocks for " + StrangeExpansion.MOD_ID);
+
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(output -> {
+            output.accept(TEST_BLOCK);
+        });
     }
 
 }

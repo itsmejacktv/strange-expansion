@@ -6,12 +6,17 @@
 
 package com.thecasualdev.jack.datagen;
 
+import com.thecasualdev.jack.block.ModBlocks;
 import com.thecasualdev.jack.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.core.HolderLookup;
+
+import java.util.concurrent.CompletableFuture;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricPackOutput output) {
@@ -21,7 +26,7 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
-
+        blockModelGenerators.createTrivialCube(ModBlocks.TEST_BLOCK);
     }
 
     @Override
@@ -30,3 +35,4 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.NOTCOOLITEM, ModelTemplates.FLAT_ITEM);
     }
 }
+

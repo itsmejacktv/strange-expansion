@@ -1,5 +1,8 @@
 // 26.2	-999999999-01-01T00:00:00	Jack's Strange Expansion/Model Definitions
+a1b7a84dca3ef71731bc2282cf960b5013c032b8 assets/jack/blockstates/test_block.json
 ae7bda98f749f67247557ca2ad8e32ce835fb9c0 assets/jack/items/cool.json
+e5b33ac4f95f2060683d0e58ddae1c1047c57855 assets/jack/items/test_block.json
 53e7288050ba2863a9e3b7a487297719ed34c515 assets/jack/items/uncool.json
+e3740b953c004686953150ce4cc32396b2f23dce assets/jack/models/block/test_block.json
 c40674f976917e49359d72047854e94f1906db25 assets/jack/models/item/cool.json
 48ccbcf349d54e6a8743a7f5cb8e3e2d7709371b assets/jack/models/item/uncool.json
