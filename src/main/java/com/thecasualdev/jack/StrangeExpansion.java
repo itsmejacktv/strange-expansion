@@ -6,6 +6,7 @@
 
 package com.thecasualdev.jack;
 
+import com.thecasualdev.jack.block.ModBlocks;
 import com.thecasualdev.jack.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -21,6 +22,7 @@ public class StrangeExpansion implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
 	}
 
 	public static Identifier id(String path) {return Identifier.fromNamespaceAndPath(MOD_ID, path);}
