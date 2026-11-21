@@ -51,11 +51,18 @@ public class ModBlocks {
         StrangeExpansion.LOGGER.info("Registering Mod blocks for " + StrangeExpansion.MOD_ID);
 
         VanillaBlocks.registerConcrete();
+        VanillaBlocks.registerTerracotta();
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(output -> {
             output.accept(TEST_BLOCK);
 
             VanillaBlocks.CONCRETE_FAMILY.values().forEach(family -> {
+                output.accept(family.stairs());
+                output.accept(family.slab());
+                output.accept(family.wall());
+            });
+
+            VanillaBlocks.TERRACOTTA_FAMILY.values().forEach(family -> {
                 output.accept(family.stairs());
                 output.accept(family.slab());
                 output.accept(family.wall());

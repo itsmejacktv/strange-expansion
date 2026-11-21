@@ -29,6 +29,7 @@ public class ModLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.NOTCOOLITEM, "Not Cool Item");
         translationBuilder.add(ModBlocks.TEST_BLOCK, "Test Block");
 
+
         for (Map.Entry<DyeColor, VanillaBlocks.family> concrete_entry : VanillaBlocks.CONCRETE_FAMILY.entrySet()) {
 
             String name = formatNameFromColor(concrete_entry.getKey()) + " Concrete";
@@ -38,6 +39,18 @@ public class ModLanguageProvider extends FabricLanguageProvider {
             translationBuilder.add(concrete.stairs(), name + " Stairs");
             translationBuilder.add(concrete.slab(), name + " Slab");
             translationBuilder.add(concrete.wall(), name + " Wall");
+
+        }
+
+        for (Map.Entry<DyeColor, VanillaBlocks.family> terracotta_entry : VanillaBlocks.TERRACOTTA_FAMILY.entrySet()) {
+
+            String name = formatNameFromColor(terracotta_entry.getKey()) + " Terracotta";
+
+            VanillaBlocks.family terracotta = terracotta_entry.getValue();
+
+            translationBuilder.add(terracotta.stairs(), name + " Stairs");
+            translationBuilder.add(terracotta.slab(), name + " Slab");
+            translationBuilder.add(terracotta.wall(), name + " Wall");
 
         }
 

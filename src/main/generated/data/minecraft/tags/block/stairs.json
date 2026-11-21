@@ -15,6 +15,22 @@
     "jack:brown_concrete_stairs",
     "jack:green_concrete_stairs",
     "jack:red_concrete_stairs",
-    "jack:black_concrete_stairs"
+    "jack:black_concrete_stairs",
+    "jack:white_terracotta_stairs",
+    "jack:orange_terracotta_stairs",
+    "jack:magenta_terracotta_stairs",
+    "jack:light_blue_terracotta_stairs",
+    "jack:yellow_terracotta_stairs",
+    "jack:lime_terracotta_stairs",
+    "jack:pink_terracotta_stairs",
+    "jack:gray_terracotta_stairs",
+    "jack:light_gray_terracotta_stairs",
+    "jack:cyan_terracotta_stairs",
+    "jack:purple_terracotta_stairs",
+    "jack:blue_terracotta_stairs",
+    "jack:brown_terracotta_stairs",
+    "jack:green_terracotta_stairs",
+    "jack:red_terracotta_stairs",
+    "jack:black_terracotta_stairs"
   ]
 }

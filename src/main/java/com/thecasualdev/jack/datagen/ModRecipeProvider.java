@@ -67,6 +67,21 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, concrete.slab(), concrete.base(), 2);
                 }
 
+                for (VanillaBlocks.family terracotta : VanillaBlocks.TERRACOTTA_FAMILY.values()) {
+
+                    stairBuilder(terracotta.stairs(), Ingredient.of(terracotta.base()))
+                            .unlockedBy(getHasName(terracotta.base()), has(terracotta.base()))
+                            .save(output);
+
+                    slab(RecipeCategory.BUILDING_BLOCKS, terracotta.slab(), terracotta.base());
+                    wall(RecipeCategory.BUILDING_BLOCKS, terracotta.wall(), terracotta.base());
+
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, terracotta.stairs(), terracotta.base(), 1);
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, terracotta.wall(), terracotta.base(), 1);
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, terracotta.slab(), terracotta.base(), 2);
+                }
+
+
             }
         };
     }

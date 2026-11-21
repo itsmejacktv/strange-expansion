@@ -26,6 +26,7 @@ public class VanillaBlocks {
     public record family_wool (Block base, Block stairs, Block slab) {}
 
     public static final Map<DyeColor, family> CONCRETE_FAMILY = new EnumMap<>(DyeColor.class);
+    public static final Map<DyeColor, family> TERRACOTTA_FAMILY = new EnumMap<>(DyeColor.class);
 
     public static void registerConcrete() {
 
@@ -63,5 +64,43 @@ public class VanillaBlocks {
         }
 
     }
+
+    public static void registerTerracotta() {
+
+        for (DyeColor color : DyeColor.values()) {
+
+            Block base = Blocks.DYED_TERRACOTTA.pick(color);
+            String name = color.getSerializedName() + "_terracotta";
+
+            Block stairs = ModBlocks.registerBlock(name + "_stairs",
+                    properties -> new StairBlock(base.defaultBlockState(),
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.BASEDRUM)
+                                    .requiresCorrectToolForDrops()
+                                    .strength(1.25F, 4.2f)));
+
+            Block slab = ModBlocks.registerBlock(name + "_slab",
+                    properties -> new SlabBlock(
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.BASEDRUM)
+                                    .requiresCorrectToolForDrops()
+                                    .strength(1.25F, 4.2f)));
+
+            Block wall = ModBlocks.registerBlock(name + "_wall",
+                    properties -> new WallBlock(
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.BASEDRUM)
+                                    .requiresCorrectToolForDrops()
+                                    .strength(1.25F, 4.2f)
+                    ));
+
+            TERRACOTTA_FAMILY.put(color, new family(base, stairs, slab, wall));
+        }
+
+    }
+
 
 }

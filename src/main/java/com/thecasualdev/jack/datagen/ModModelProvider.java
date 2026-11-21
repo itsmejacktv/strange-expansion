@@ -84,6 +84,55 @@ public class ModModelProvider extends FabricModelProvider {
 
         }
 
+        for (VanillaBlocks.family terracotta : VanillaBlocks.TERRACOTTA_FAMILY.values()) {
+
+            TextureMapping texture = TextureMapping.cube(terracotta.base());
+
+            Identifier full = ModelLocationUtils.getModelLocation(terracotta.base());
+
+
+            Identifier inner = ModelTemplates.STAIRS_INNER.create(terracotta.stairs(), texture, blockModelGenerators.modelOutput);
+            Identifier straight = ModelTemplates.STAIRS_STRAIGHT.create(terracotta.stairs(), texture, blockModelGenerators.modelOutput);
+            Identifier outer = ModelTemplates.STAIRS_OUTER.create(terracotta.stairs(), texture, blockModelGenerators.modelOutput);
+
+            blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createStairs(
+                    terracotta.stairs(),
+                    BlockModelGenerators.plainVariant(inner),
+                    BlockModelGenerators.plainVariant(straight),
+                    BlockModelGenerators.plainVariant(outer)
+            ));
+
+
+            Identifier bottom = ModelTemplates.SLAB_BOTTOM.create(terracotta.slab(), texture, blockModelGenerators.modelOutput);
+            Identifier top = ModelTemplates.SLAB_TOP.create(terracotta.slab(), texture, blockModelGenerators.modelOutput);
+
+            blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSlab(
+                    terracotta.slab(),
+                    BlockModelGenerators.plainVariant(bottom),
+                    BlockModelGenerators.plainVariant(top),
+                    BlockModelGenerators.plainVariant(full)
+            ));
+
+
+            Identifier post = ModelTemplates.WALL_POST.create(terracotta.wall(), texture, blockModelGenerators.modelOutput);
+            Identifier low = ModelTemplates.WALL_LOW_SIDE.create(terracotta.wall(), texture, blockModelGenerators.modelOutput);
+            Identifier tall = ModelTemplates.WALL_TALL_SIDE.create(terracotta.wall(), texture, blockModelGenerators.modelOutput);
+
+            blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createWall(
+                    terracotta.wall(),
+                    BlockModelGenerators.plainVariant(post),
+                    BlockModelGenerators.plainVariant(low),
+                    BlockModelGenerators.plainVariant(tall)
+            ));
+
+            blockModelGenerators.registerSimpleItemModel(
+                    terracotta.wall(), ModelTemplates.WALL_INVENTORY.create(
+                            terracotta.wall(), texture, blockModelGenerators.modelOutput
+                    )
+            );
+
+        }
+
     }
 
     @Override

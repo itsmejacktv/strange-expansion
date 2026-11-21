@@ -15,6 +15,22 @@
     "jack:brown_concrete_wall",
     "jack:green_concrete_wall",
     "jack:red_concrete_wall",
-    "jack:black_concrete_wall"
+    "jack:black_concrete_wall",
+    "jack:white_terracotta_wall",
+    "jack:orange_terracotta_wall",
+    "jack:magenta_terracotta_wall",
+    "jack:light_blue_terracotta_wall",
+    "jack:yellow_terracotta_wall",
+    "jack:lime_terracotta_wall",
+    "jack:pink_terracotta_wall",
+    "jack:gray_terracotta_wall",
+    "jack:light_gray_terracotta_wall",
+    "jack:cyan_terracotta_wall",
+    "jack:purple_terracotta_wall",
+    "jack:blue_terracotta_wall",
+    "jack:brown_terracotta_wall",
+    "jack:green_terracotta_wall",
+    "jack:red_terracotta_wall",
+    "jack:black_terracotta_wall"
   ]
 }

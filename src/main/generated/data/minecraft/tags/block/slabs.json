@@ -15,6 +15,22 @@
     "jack:brown_concrete_slab",
     "jack:green_concrete_slab",
     "jack:red_concrete_slab",
-    "jack:black_concrete_slab"
+    "jack:black_concrete_slab",
+    "jack:white_terracotta_slab",
+    "jack:orange_terracotta_slab",
+    "jack:magenta_terracotta_slab",
+    "jack:light_blue_terracotta_slab",
+    "jack:yellow_terracotta_slab",
+    "jack:lime_terracotta_slab",
+    "jack:pink_terracotta_slab",
+    "jack:gray_terracotta_slab",
+    "jack:light_gray_terracotta_slab",
+    "jack:cyan_terracotta_slab",
+    "jack:purple_terracotta_slab",
+    "jack:blue_terracotta_slab",
+    "jack:brown_terracotta_slab",
+    "jack:green_terracotta_slab",
+    "jack:red_terracotta_slab",
+    "jack:black_terracotta_slab"
   ]
 }

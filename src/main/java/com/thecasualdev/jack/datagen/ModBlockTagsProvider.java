@@ -32,6 +32,7 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
         tag(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)
                 .add(ModBlocks.getRk(ModBlocks.TEST_BLOCK));
 
+
         for (VanillaBlocks.family concrete : VanillaBlocks.CONCRETE_FAMILY.values()) {
             tag(BlockTags.MINEABLE_WITH_PICKAXE)
                     .add(ModBlocks.getRk(concrete.stairs()))
@@ -41,6 +42,17 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
             tag(BlockTags.STAIRS).add(ModBlocks.getRk(concrete.stairs()));
             tag(BlockTags.SLABS).add(ModBlocks.getRk(concrete.slab()));
             tag(BlockTags.WALLS).add(ModBlocks.getRk(concrete.wall()));
+        }
+
+        for (VanillaBlocks.family terracotta : VanillaBlocks.TERRACOTTA_FAMILY.values()) {
+            tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                    .add(ModBlocks.getRk(terracotta.stairs()))
+                    .add(ModBlocks.getRk(terracotta.slab()))
+                    .add(ModBlocks.getRk(terracotta.wall()));
+
+            tag(BlockTags.STAIRS).add(ModBlocks.getRk(terracotta.stairs()));
+            tag(BlockTags.SLABS).add(ModBlocks.getRk(terracotta.slab()));
+            tag(BlockTags.WALLS).add(ModBlocks.getRk(terracotta.wall()));
         }
 
     }
