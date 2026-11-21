@@ -30,6 +30,8 @@ public class VanillaBlocks {
     public static final Map<DyeColor, family> TERRACOTTA_FAMILY = new EnumMap<>(DyeColor.class);
     public static final Map<DyeColor, family> GLAZED_TERRACOTTA_FAMILY = new EnumMap<>(DyeColor.class);
 
+    public static final Map<DyeColor, family_wool> WOOL_FAMILY = new EnumMap<>(DyeColor.class);
+
     public static void registerConcrete() {
 
         for (DyeColor color : DyeColor.values()) {
@@ -140,6 +142,37 @@ public class VanillaBlocks {
                     ));
 
             GLAZED_TERRACOTTA_FAMILY.put(color, new family(base, stairs, slab, wall));
+        }
+
+    }
+
+    public static void registerWool() {
+
+        for (DyeColor color : DyeColor.values()) {
+
+            Block base = Blocks.WOOL.pick(color);
+            String name = color.getSerializedName() + "_wool";
+
+            Block stairs = ModBlocks.registerBlock(name + "_stairs",
+                    properties -> new StairBlock(base.defaultBlockState(),
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.GUITAR)
+                                    .strength(0.8F)
+                                    .sound(SoundType.WOOL)
+                                    .ignitedByLava()));
+
+            Block slab = ModBlocks.registerBlock(name + "_slab",
+                    properties -> new SlabBlock(
+                            properties
+                                    .mapColor(color.getMapColor())
+                                    .instrument(NoteBlockInstrument.GUITAR)
+                                    .strength(0.8F)
+                                    .sound(SoundType.WOOL)
+                                    .ignitedByLava()));
+
+
+            WOOL_FAMILY.put(color, new family_wool(base, stairs, slab));
         }
 
     }

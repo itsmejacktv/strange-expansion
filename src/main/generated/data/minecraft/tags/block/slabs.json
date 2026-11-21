@@ -47,6 +47,22 @@
     "jack:brown_glazed_terracotta_slab",
     "jack:green_glazed_terracotta_slab",
     "jack:red_glazed_terracotta_slab",
-    "jack:black_glazed_terracotta_slab"
+    "jack:black_glazed_terracotta_slab",
+    "jack:white_wool_slab",
+    "jack:orange_wool_slab",
+    "jack:magenta_wool_slab",
+    "jack:light_blue_wool_slab",
+    "jack:yellow_wool_slab",
+    "jack:lime_wool_slab",
+    "jack:pink_wool_slab",
+    "jack:gray_wool_slab",
+    "jack:light_gray_wool_slab",
+    "jack:cyan_wool_slab",
+    "jack:purple_wool_slab",
+    "jack:blue_wool_slab",
+    "jack:brown_wool_slab",
+    "jack:green_wool_slab",
+    "jack:red_wool_slab",
+    "jack:black_wool_slab"
   ]
 }

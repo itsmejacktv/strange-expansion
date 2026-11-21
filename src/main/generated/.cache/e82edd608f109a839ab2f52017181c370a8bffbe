@@ -2,6 +2,7 @@
 34f7f1b006778882484be2f14bb29e8b333bc3b6 data/minecraft/tags/block/incorrect_for_netherite_tool.json
 3e881d3af2a8ca3878bf40128cedf1bee00ec1fd data/minecraft/tags/block/mineable/pickaxe.json
 34f7f1b006778882484be2f14bb29e8b333bc3b6 data/minecraft/tags/block/needs_iron_tool.json
-d9ceced7a1863598776c9690d5bbf1295a3101f5 data/minecraft/tags/block/slabs.json
-330c6a79c81694c0b67388bc048c592b5c7cdc45 data/minecraft/tags/block/stairs.json
+822d374e1c10f23d4c491decd77689ebe5ed778e data/minecraft/tags/block/slabs.json
+340664ec1c335986123570bcd01836d9f4298fb9 data/minecraft/tags/block/stairs.json
 0398225a3bb70bf8a9dd8c77fea256dccabd06f6 data/minecraft/tags/block/walls.json
+0a39d541507d825a6921d9d6b46f3344de91be22 data/minecraft/tags/block/wool.json

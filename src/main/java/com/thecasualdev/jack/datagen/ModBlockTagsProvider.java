@@ -66,5 +66,14 @@ public class ModBlockTagsProvider extends FabricTagsProvider.BlockTagsProvider {
             tag(BlockTags.WALLS).add(ModBlocks.getRk(glazed_terracotta.wall()));
         }
 
+        for (VanillaBlocks.family_wool wool : VanillaBlocks.WOOL_FAMILY.values()) {
+            tag(BlockTags.WOOL)
+                    .add(ModBlocks.getRk(wool.stairs()))
+                    .add(ModBlocks.getRk(wool.slab()));
+
+            tag(BlockTags.STAIRS).add(ModBlocks.getRk(wool.stairs()));
+            tag(BlockTags.SLABS).add(ModBlocks.getRk(wool.slab()));
+        }
+
     }
 }

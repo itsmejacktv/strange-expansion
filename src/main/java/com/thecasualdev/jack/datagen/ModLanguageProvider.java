@@ -66,6 +66,17 @@ public class ModLanguageProvider extends FabricLanguageProvider {
 
         }
 
+        for (Map.Entry<DyeColor, VanillaBlocks.family_wool> woolEntry : VanillaBlocks.WOOL_FAMILY.entrySet()) {
+
+            String name = formatNameFromColor(woolEntry.getKey()) + " Wool";
+
+            VanillaBlocks.family_wool terracotta = woolEntry.getValue();
+
+            translationBuilder.add(terracotta.stairs(), name + " Stairs");
+            translationBuilder.add(terracotta.slab(), name + " Slab");
+
+        }
+
     }
 
     private static String formatNameFromColor(DyeColor color) {

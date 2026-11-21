@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "jack:block/orange_wool_slab"
+    },
+    "type=double": {
+      "model": "minecraft:block/orange_wool"
+    },
+    "type=top": {
+      "model": "jack:block/orange_wool_slab_top"
+    }
+  }
+}

@@ -96,6 +96,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                     stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, glazed_terracotta.slab(), glazed_terracotta.base(), 2);
                 }
 
+                for (VanillaBlocks.family_wool wool : VanillaBlocks.WOOL_FAMILY.values()) {
+
+                    stairBuilder(wool.stairs(), Ingredient.of(wool.base()))
+                            .unlockedBy(getHasName(wool.base()), has(wool.base()))
+                            .save(output);
+
+                    slab(RecipeCategory.BUILDING_BLOCKS, wool.slab(), wool.base());
+                }
+
             }
         };
     }

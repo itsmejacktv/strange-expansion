@@ -8,6 +8,7 @@ package com.thecasualdev.jack.block;
 
 import com.thecasualdev.jack.StrangeExpansion;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
+import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -50,9 +51,15 @@ public class ModBlocks {
     public static void registerModBlocks() {
         StrangeExpansion.LOGGER.info("Registering Mod blocks for " + StrangeExpansion.MOD_ID);
 
+        VanillaBlocks.registerWool();
         VanillaBlocks.registerConcrete();
         VanillaBlocks.registerTerracotta();
         VanillaBlocks.registerGlazedTerracotta();
+
+        for (VanillaBlocks.family_wool wool : VanillaBlocks.WOOL_FAMILY.values()) {
+            FlammableBlockRegistry.getDefaultInstance().add(wool.stairs(), 30, 60);
+            FlammableBlockRegistry.getDefaultInstance().add(wool.slab(), 30, 60);
+        }
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(output -> {
             output.accept(TEST_BLOCK);
@@ -73,6 +80,11 @@ public class ModBlocks {
                 output.accept(family.stairs());
                 output.accept(family.slab());
                 output.accept(family.wall());
+            });
+
+            VanillaBlocks.WOOL_FAMILY.values().forEach(family -> {
+                output.accept(family.stairs());
+                output.accept(family.slab());
             });
         });
     }
