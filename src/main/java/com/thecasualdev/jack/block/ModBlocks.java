@@ -32,7 +32,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS)));
 
 
-    private static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function) {
+    static Block registerBlock(String name, Function<BlockBehaviour.Properties, Block> function) {
         Block toRegister = function.apply(BlockBehaviour.Properties.of().setId(ResourceKey.create(
                 Registries.BLOCK, StrangeExpansion.id(name))));
 
@@ -50,8 +50,16 @@ public class ModBlocks {
     public static void registerModBlocks() {
         StrangeExpansion.LOGGER.info("Registering Mod blocks for " + StrangeExpansion.MOD_ID);
 
+        VanillaBlocks.registerConcrete();
+
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.BUILDING_BLOCKS).register(output -> {
             output.accept(TEST_BLOCK);
+
+            VanillaBlocks.CONCRETE_FAMILY.values().forEach(family -> {
+                output.accept(family.stairs());
+                output.accept(family.slab());
+                output.accept(family.wall());
+            });
         });
     }
 

@@ -7,14 +7,19 @@
 package com.thecasualdev.jack.datagen;
 
 import com.thecasualdev.jack.block.ModBlocks;
+import com.thecasualdev.jack.block.VanillaBlocks;
 import com.thecasualdev.jack.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ModelLocationUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -27,6 +32,58 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
         blockModelGenerators.createTrivialCube(ModBlocks.TEST_BLOCK);
+
+//      Gonna have to manually do this because Microsoft/Mojang hates me and wants me dead.
+//      #familyIsTheBestWishICouldUseItOnVanilliaObjects
+        for (VanillaBlocks.family concrete : VanillaBlocks.CONCRETE_FAMILY.values()) {
+
+            TextureMapping texture = TextureMapping.cube(concrete.base());
+
+            Identifier full = ModelLocationUtils.getModelLocation(concrete.base());
+
+
+            Identifier inner = ModelTemplates.STAIRS_INNER.create(concrete.stairs(), texture, blockModelGenerators.modelOutput);
+            Identifier straight = ModelTemplates.STAIRS_STRAIGHT.create(concrete.stairs(), texture, blockModelGenerators.modelOutput);
+            Identifier outer = ModelTemplates.STAIRS_OUTER.create(concrete.stairs(), texture, blockModelGenerators.modelOutput);
+
+            blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createStairs(
+                    concrete.stairs(),
+                    BlockModelGenerators.plainVariant(inner),
+                    BlockModelGenerators.plainVariant(straight),
+                    BlockModelGenerators.plainVariant(outer)
+            ));
+
+
+            Identifier bottom = ModelTemplates.SLAB_BOTTOM.create(concrete.slab(), texture, blockModelGenerators.modelOutput);
+            Identifier top = ModelTemplates.SLAB_TOP.create(concrete.slab(), texture, blockModelGenerators.modelOutput);
+
+            blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createSlab(
+                    concrete.slab(),
+                    BlockModelGenerators.plainVariant(bottom),
+                    BlockModelGenerators.plainVariant(top),
+                    BlockModelGenerators.plainVariant(full)
+            ));
+
+
+            Identifier post = ModelTemplates.WALL_POST.create(concrete.wall(), texture, blockModelGenerators.modelOutput);
+            Identifier low = ModelTemplates.WALL_LOW_SIDE.create(concrete.wall(), texture, blockModelGenerators.modelOutput);
+            Identifier tall = ModelTemplates.WALL_TALL_SIDE.create(concrete.wall(), texture, blockModelGenerators.modelOutput);
+
+            blockModelGenerators.blockStateOutput.accept(BlockModelGenerators.createWall(
+                    concrete.wall(),
+                    BlockModelGenerators.plainVariant(post),
+                    BlockModelGenerators.plainVariant(low),
+                    BlockModelGenerators.plainVariant(tall)
+            ));
+
+            blockModelGenerators.registerSimpleItemModel(
+                    concrete.wall(), ModelTemplates.WALL_INVENTORY.create(
+                            concrete.wall(), texture, blockModelGenerators.modelOutput
+                    )
+            );
+
+        }
+
     }
 
     @Override
