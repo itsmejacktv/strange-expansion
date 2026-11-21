@@ -1,6 +1,7 @@
 package com.thecasualdev.jack.datagen;
 
 import com.thecasualdev.jack.block.ModBlocks;
+import com.thecasualdev.jack.block.VanillaBlocks;
 import com.thecasualdev.jack.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -10,6 +11,7 @@ import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.CookingBookCategory;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 
@@ -48,6 +50,22 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                         .unlockedBy(getHasName(Items.NETHERITE_HOE), has(Items.NETHERITE_HOE))
                         .group("gubby")
                         .save(output, "make_something_cool");
+
+//              Important probably
+
+                for (VanillaBlocks.family concrete : VanillaBlocks.CONCRETE_FAMILY.values()) {
+
+                    stairBuilder(concrete.stairs(), Ingredient.of(concrete.base()))
+                            .unlockedBy(getHasName(concrete.base()), has(concrete.base()))
+                            .save(output);
+
+                    slab(RecipeCategory.BUILDING_BLOCKS, concrete.slab(), concrete.base());
+                    wall(RecipeCategory.BUILDING_BLOCKS, concrete.wall(), concrete.base());
+
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, concrete.stairs(), concrete.base(), 1);
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, concrete.wall(), concrete.base(), 1);
+                    stonecutterResultFromBase(RecipeCategory.BUILDING_BLOCKS, concrete.slab(), concrete.base(), 2);
+                }
 
             }
         };
