@@ -7,6 +7,7 @@
 package com.thecasualdev.jack.datagen;
 
 import com.thecasualdev.jack.block.ModBlocks;
+import com.thecasualdev.jack.block.VanillaBlocks;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootSubProvider;
 import net.minecraft.core.HolderLookup;
@@ -22,6 +23,12 @@ public class ModBlockLootTableProvider extends FabricBlockLootSubProvider {
     public void generate() {
 
         dropSelf(ModBlocks.TEST_BLOCK);
+
+        for (VanillaBlocks.family concrete : VanillaBlocks.CONCRETE_FAMILY.values()) {
+            dropSelf(concrete.stairs());
+            dropSelf(concrete.wall());
+            add(concrete.slab(), createSlabItemTable(concrete.slab()));
+        }
 
     }
 }
